@@ -1,0 +1,46 @@
+* {
+    font-family: 'Times New Roman', Times, serif;
+    color: #999999;
+}
+
+body {
+    background: url(../images/background.jpg) no-repeat top fixed;
+    background-size: cover;
+}
+
+.container1 {
+    position: relative;
+    text-align: center;
+    text-overflow: ellipsis;
+}
+
+.bottomImage {
+    position: relative;
+    bottom: 0px;
+    left: 5px;
+    padding: 3px;
+    background-color: #222222;
+    width: 150px;
+}
+
+#_warning {
+    color: red
+}
+
+.col-2 {
+    border-color: #777777;
+    border-width: 5px;
+    float: left;
+    width: 250px;
+    margin-top: 15px;
+}
+
+h3 {
+    text-align: start;
+}
+
+
+/* 
+@media only screen and (max-width: 600px) {
+    
+} */
