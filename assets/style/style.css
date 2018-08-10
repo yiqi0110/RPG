@@ -33,16 +33,16 @@ body {
     margin-top: 15px;
 }
 
-#lichimg {
-
-}
 
 h3 {
     text-align: start;
 }
 
 
-/* 
-@media only screen and (max-width: 600px) {
-    
-} */
+
+
+@media only screen and (max-width: 1200px) {
+    .bottomImage{
+        left:0px;
+    }  
+   }
