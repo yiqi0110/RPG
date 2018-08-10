@@ -24,15 +24,17 @@ body {
 }
 
 #_warning {
-    color: red
+    color: red;
 }
 
 .col-2 {
-    border-color: #777777;
-    border-width: 5px;
     float: left;
     width: 250px;
     margin-top: 15px;
+}
+
+#lichimg {
+
 }
 
 h3 {

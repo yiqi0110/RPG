@@ -30,76 +30,128 @@ var windrunner = {
     hp: 120,
     attk: windAttk,
     counterAttk: windAttk * 2,
-}
+};
 
 var thrall = {
     name: "Thrall, Warchief of the Horde",
     hp: 150,
     attk: thrallAttk,
     counterAttk: thrallAttk * 1.75,
-}
+};
 console.log(lichking, stormrage, windrunner, thrall);
+
+// function to attack
+var attack = function (x, y) {
+    y.hp = y.hp - x.attk;
+    x.attk = x.counterAttk;
+    if (y.hp >= 0) {
+        x.hp = x.hp - y.attk;
+    };
+};
+
+
+// reset button functionality
+// $('#_reset').click();
 
 
 //start the game using the startup()
 function startup() {
     // click a character to start the theme song, will also hiding the #warning
-    $(document).ready(function(){
+    $(document).ready(function () {
+        $('#_combatantSelect').hide();
+        $('#_playerDamage').hide();
+        $('#_combatantDamage').hide();
+        $('#_attack').hide();
+        $('#_win').hide();
+        $('#_lose').hide();
+        $('#_reset').hide();
         
+
+        // Sets all the names and values to each character
         $('#lichhp').append(lichking.hp + " " + lichking.name);
-        $('#stormhp').append(stormrage.hp + " " +stormrage.name);
+        $('#stormhp').append(stormrage.hp + " " + stormrage.name);
         $('#windhp').append(windrunner.hp + " " + windrunner.name);
         $('#thrallhp').append(thrall.hp + " " + thrall.name);
-        $(document).click(function(event){
+
+        // Runs through to allow the player to select their character and moves the others to the potential combatants div
+        $('#_playerSelect').click(function (event) {
             $('._disappearOnceGameStart').hide();
             if (event.target.id !== 'lichimg') {
                 $('#lichdiv').appendTo('#_enemies');
             } else {
                 $('#lichdiv').appendTo('#_player');
+                $('#lichimg').attr('style', 'border: 5px solid green');
             };
-            if (event.target !== '#stormdiv') {
+            if (event.target.id !== 'stormimg') {
                 $('#stormdiv').appendTo('#_enemies');
             } else {
                 $('#stormdiv').appendTo('#_player');
+                $('#stormimg').attr('style', 'border: 5px solid green');
             };
-            if (event.target !== '#winddiv') {
+            if (event.target.id !== 'windimg') {
                 $('#winddiv').appendTo('#_enemies');
             } else {
                 $('#winddiv').appendTo('#_player');
+                $('#windimg').attr('style', 'border: 5px solid green');
             };
-            if (event.target !== '#thralldiv') {
+            if (event.target.id !== 'thrallimg') {
                 $('#thralldiv').appendTo('#_enemies');
             } else {
                 $('#thralldiv').appendTo('#_player');
+                $('#thrallimg').attr('style', 'border: 5px solid green');
             };
-            console.log(event.target)
-            // if (event.target !== '#lichdiv') {
-            //     $('#lichdiv').appendTo('#_player');
-            //     $('#stormdiv').appendTo('#_enemies');
-            //     $('#winddiv').appendTo('#_enemies');
-            //     $('#thralldiv').appendTo('#_enemies');
-            // };
-            // if (event.target !== '#stormdiv') {
-            //     $('#stormdiv').appendTo('#_player');
-            //     $('#lichdiv').appendTo('#_enemies');
-            //     $('#winddiv').appendTo('#_enemies');
-            //     $('#thralldiv').appendTo('#_enemies');
-            // };
-            // if (event.target !== '#winddiv') {
-            //     $('#winddiv').appendTo('#_player');
-            //     $('#stormdiv').appendTo('#_enemies');
-            //     $('#lichdiv').appendTo('#_enemies');
-            //     $('#thralldiv').appendTo('#_enemies');
-            // };
-            // if (event.target !== '#thralldiv') {
-            //     $('#thralldiv').appendTo('#_player');
-            //     $('#stormdiv').appendTo('#_enemies');
-            //     $('#winddiv').appendTo('#_enemies');
-            //     $('#lichdiv').appendTo('#_enemies');
-            // };
+            
+            // Allows you to select your combatant then moves players character and combatant to PVP
+            // As well as gives the player and 
+            $('#_enemies').click(function (event) {
+                if (event.target.id !== 'lichimg') {} else {
+                    $(this).hide();
+                    $('#lichdiv').appendTo('#_battleground').wrap("<div class='_opponent'></div>");
+                    $('#lichimg').attr('style', 'border: 5px solid red');
+                    $('#_player').prependTo('#_battleground');
+                };
+                if (event.target.id !== 'stormimg') {} else {
+                    $(this).hide();
+                    $('#stormdiv').appendTo('#_battleground').wrap("<div class='_opponent'></div>");
+                    $('#stormimg').attr('style', 'border: 5px solid red');
+                    $('#_player').prependTo('#_battleground');
+                };
+                if (event.target.id !== 'windimg') {} else {
+                    $(this).hide();
+                    $('#winddiv').appendTo('#_battleground').wrap("<div class='_opponent'></div>");
+                    $('#windimg').attr('style', 'border: 5px solid red');
+                    $('#_player').prependTo('#_battleground');
+                };
+                if (event.target.id !== 'thrallimg') {} else {
+                    $(this).hide();
+                    $('#thralldiv').appendTo('#_battleground').wrap("<div class='_opponent'></div>");
+                    $('#thrallimg').attr('style', 'border: 5px solid red');
+                    $('#_player').prependTo('#_battleground');
+                };
+                $('#_gameTime').attr('style', 'color: red; font-size: 100px');
+            });
+            $('#_attack').show();
+            // Now to comence the battle, using the #_player to store the players stats
+            // And the ._opponent to store the combatants stats
+            if ($('#_player').find('div#lichdiv').length !== 0) {
+                console.log(lichking, stormrage);
+                $('_attack').onclick = attack(lichking, stormrage);
+                console.log(lichking, stormrage);
+                
+            }
+            if ($('#_player').find('div#stormdiv').length !== 0) {
+                
+            }
+            if ($('#_player').find('div#winddiv').length !== 0) {
+                
+            }
+            if ($('#_player').find('div#thralldiv').length !== 0) {
+                
+            }
+            
         });
+        
+        // clicking on the character will move the character into your player div and the remaining characters into the possible combatants div
+        
     });
-
-    // clicking on the character will move the character into your player div and the remaining characters into the possible combatants div
-
-};
+}

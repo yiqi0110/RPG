@@ -29,21 +29,21 @@
                 <img id="lichimg" src="assets/images/lichking.jpg" alt="lichking" width="150" height="150">
                 <div class="bottomImage" id="lichhp"></div>
             </div>
-            <div class="col-2 container1" id="stormdiv">
-                <img src="assets/images/stromrage.jpg" alt="stormrage" width="150" height="150">
+            <div class="col-2 container1 " id="stormdiv">
+                <img id="stormimg" src="assets/images/stromrage.jpg" alt="stormrage" width="150" height="150">
                 <div class="bottomImage" id="stormhp"></div>
             </div>
             <div class="col-2 container1" id="winddiv">
-                <img src="assets/images/windrunner.jpeg" alt="windrunner" width="150" height="150">
+                <img id="windimg" src="assets/images/windrunner.jpeg" alt="windrunner" width="150" height="150">
                 <div class="bottomImage" id="windhp"></div>
             </div>
             <div class="col-2 container1" id="thralldiv">
-                <img src="assets/images/thrall.jpg" alt="thrall" width="150" height="150">
+                <img id="thrallimg" src="assets/images/thrall.jpg" alt="thrall" width="150" height="150">
                 <div class="bottomImage" id="thrallhp"></div>
             </div>
         </div>
         <!-- contains the player Character once the selection has been made -->
-        <h3>Your Character</h3>
+        <h3>Your Character (<span style="color: green">DISPLAYED IN GREEN</span>)</h3>
         <div class="row" id="_player">
         </div>
         <!-- potentional enemies -->
@@ -53,14 +53,21 @@
         <!-- attack button -->
         <h3>FOR THE HORDE/ ALLIANCE ;P</h3>
         <div class="row" id="_attack">
+            <input id='_attack' type='button' value="ATTACK!!!"/>
         </div>
         <!-- the enemy your facing -->
-        <h3>PvP</h3>
+        <h3 id='_gameTime'>PvP</h3>
         <div class="row" id="_battleground">
         </div>
         <!-- displays the text regarding the games progress -->
         <div class="row" id="_gameText">
             <!-- I'll have the js write the text here so it changes -->
+            <h2 id='_combatantSelect'>Please select your opponent.</h2>
+            <h2 id='_playerDamage'>You attacked with </h2>
+            <h2 id='_combatantDamage'> attacked with </h2>
+            <h2 id='_win'>You won!!!</h2>
+            <h2 id='_lose'>You died. would you like to ressurect?</h2>
+            <button id='_reset' type"button">ressurect?</button>
 
         </div>
     </div>
