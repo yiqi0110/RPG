@@ -44,7 +44,9 @@
         </div>
         <!-- contains the player Character once the selection has been made -->
         <h3>Your Character (<span style="color: green">DISPLAYED IN GREEN</span>)</h3>
-        <div class="row" id="_player">
+        <div class="row" id="_playerHolder">
+            <div id="_player">
+            </div>
         </div>
         <!-- potentional enemies -->
         <h3>Potentional Combatants</h3>
@@ -68,10 +70,13 @@
             <h2 id='_win'>You won!!!</h2>
             <h2 id='_lose'>You died. would you like to ressurect?</h2>
             <button id='_reset' type"button">ressurect?</button>
-
+            
+        </div>
+        <!-- holds defeated opponents -->
+        <div class="row" id="_defeated">
         </div>
     </div>
-
+    
     <!-- my js file -->
     <script src="assets/script/javascript.js"></script>
     <!-- bootstrap java as well as jquery -->
