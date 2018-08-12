@@ -64,36 +64,7 @@ var attack = function (x, y) {
 // click a character to start the theme song, will also hiding the #warning
 $(document).ready(function PvP() {
 
-    var reset = function () {
-        $('#_combatantSelect').hide();
-        $('#_playerDamage').hide();
-        $('#_combatantDamage').hide();
-        $('#_attack').hide();
-        $('#_win').hide();
-        $('#_lose').hide();
-        $('#_reset').hide();
-        $('#_enemies').show();
-        $('#_opponent').show();
-        $('#_player').show();
-        // tried to reload the page as opposed to recreating the wheel
-        document.reload();
-
-
-
-
-        // Creates a variable for the #_player and #_opponent
-        var playerCharacter;
-        var opponentCharacter;
-        var defeatedCharacters = [];
-
-        // Defining the variables for the attack function below
-        var y;
-        var x;
-
-        var wins = 0;
-    };
-    reset();
-    
+    $('#_battle').hide();
     $('#_combatantSelect').hide();
     $('#_playerDamage').hide();
     $('#_combatantDamage').hide();
@@ -169,6 +140,12 @@ $(document).ready(function PvP() {
             // console.log(playerCharacter);
 
         };
+        $('#_combatantSelect').show().text("select a worthy foul to join you in mortal combat!").attr('style', 'color: red;');
+
+        // was trying to add a theme song as this function executed but didnt really work
+        var audioElement = document.createElement("audio");
+        audioElement.setAttribute("src", "../../music/themesong.mp3");
+        audioElement.play();
 
     });
 
@@ -223,12 +200,15 @@ $(document).ready(function PvP() {
 
         };
 
+        $('#_combatantSelect').hide();
         $('#_gameTime').attr('style', 'color: red; font-size: 100px');
         $('#_attack').show();
+        $('#_battle').show().text('Battle to the end!!!');
 
     });
     $('#_attack').click(function () {
         attack(x, y);
+        $('#_battle').hide();
         $('#_combatantDamage').show();
         $('#_playerDamage').show();
         if (y.hp <= 0) {
@@ -272,9 +252,6 @@ $(document).ready(function PvP() {
                 $('#_playerDamage').hide();
                 $('#_combatantDamage').hide();
                 $('#_attack').hide();
-                $('#_reset').click(function () {
-                    reset();
-                })
             }
             // if player health = 0 then lose
             if (x.hp <= 0) {
@@ -284,9 +261,6 @@ $(document).ready(function PvP() {
                 $('#_playerDamage').hide();
                 $('#_combatantDamage').hide();
                 $('#_attack').hide();
-                $('#_reset').click(function () {
-                    reset();
-                })
             }
         }
 
