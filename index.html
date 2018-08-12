@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="assets/style/style.css">
 </head>
 
-<body onload="startup()">
+<body>
     <span class="_disappearOnceGameStart">
         <h1>
             <strong id="_warning">Please be aware once you start the game, a theme song will play. If you are in a quite place please turn volume
@@ -43,7 +43,8 @@
             </div>
         </div>
         <!-- contains the player Character once the selection has been made -->
-        <h3>Your Character (<span style="color: green">DISPLAYED IN GREEN</span>)</h3>
+        <h3>Your Character (
+            <span style="color: green">DISPLAYED IN GREEN</span>)</h3>
         <div class="row" id="_playerHolder">
             <div id="_player">
             </div>
@@ -65,20 +66,18 @@
         <div class="row" id="_gameText">
             <!-- I'll have the js write the text here so it changes -->
             <h2 id='_combatantSelect'>Please select your opponent.</h2>
-            <h2 id='_playerDamage'>You attacked with </h2>
-            <h2 id='_combatantDamage'> attacked with </h2>
-            <h2 id='_win'>You won!!!</h2>
-            <h2 id='_lose'>You died. would you like to ressurect?</h2>
-            <button id='_reset' type"button">ressurect?</button>
-            
+            <h2 id='_playerDamage'>#</h2>
+            <h2 id='_combatantDamage'>#</h2>
+            <h2 id='_win'>#</h2>
+            <h2 id='_lose'>#</h2>
+            <button id='_reset' type "button">ressurect?</button>
+
         </div>
         <!-- holds defeated opponents -->
         <div class="row" id="_defeated">
         </div>
     </div>
-    
-    <!-- my js file -->
-    <script src="assets/script/javascript.js"></script>
+
     <!-- bootstrap java as well as jquery -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -86,6 +85,8 @@
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
+    <!-- my js file -->
+    <script src="assets/script/javascript.js"></script>
 </body>
 
 </html>
