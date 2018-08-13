@@ -92,7 +92,6 @@ $(document).ready(function PvP() {
 
     // Runs through to allow the player to select their character and moves the others to the potential combatants div
     $('#_playerSelect').click(function playerSelect(event) {
-        $('._disappearOnceGameStart').hide();
         if (event.target.id !== 'lichimg') {
             $('#lichdiv').appendTo('#_enemies');
         } else {
@@ -141,11 +140,6 @@ $(document).ready(function PvP() {
 
         };
         $('#_combatantSelect').show().text("select a worthy foul to join you in mortal combat!").attr('style', 'color: red;');
-
-        // was trying to add a theme song as this function executed but didnt really work
-        var audioElement = document.createElement("audio");
-        audioElement.setAttribute("src", "../../music/themesong.mp3");
-        audioElement.play();
 
     });
 
