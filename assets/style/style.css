@@ -8,6 +8,19 @@ body {
     background-size: cover;
 }
 
+footer {
+    position: fixed;
+    bottom: 0;
+    padding: 1em;
+    width: 100%;
+    text-align: center;
+    background-color: #222222;
+}
+
+footer a {
+    color: #999999
+}
+
 .container1 {
     position: relative;
     text-align: center;
